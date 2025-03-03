@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <h1 class="title">Tic-Tac-Toe</h1>
+    <div id="menu-main" class="menu">
+        
+        <button id="start-game" class="menu-option" onclick="ttt.showMenu('mode');">Start Game</button>
+        <button id="continue-game" class="menu-option" onclick="ttt.showMenu('game');" style="display:none;">Continue</button>
+        <button id="quit-game" class="menu-option red-option" onclick="ttt.quitGame();" style="display:none;">Quit Game</button>
+        <button class="menu-option" onclick="ttt.showMenu('help');">How to Play</button>
+    </div>
+
+    <div id="menu-mode" class="menu" style="display:none;">
+        <h2 class="menu-title">Please select a game mode</h2>
+        <button class="menu-back" onclick="ttt.showMenu('main');" title="Back"><span class="icon-arrow"></span></button>
+        <button class="menu-option" onclick="ttt.startGame('cpu', 'new');">Single Player</button>
+        <button class="menu-option" onclick="ttt.startGame('multi', 'new');">Two Player</button>
+    </div>
+
+    <div id="menu-help" class="menu" style="display:none;">
+        <h2 class="menu-title">How to Play</h2>
+        <button class="menu-back" onclick="ttt.showMenu('main');" title="Back"><span class="icon-arrow"></span></button>
+        <h3 class="sub-title">Rules</h3>
+        <p class="menu-text">In Tic-Tac-Toe two players take turns marking the spaces in a 3x3 grid. The rules are simple: the first player to place three of their marks in a horizontal, vertical, or diagonal row wins the game.</p>
+        <div class="menu-text center">
+            <img src="resources/images/example.png" alt="example">
+            <div><em>In this example "X" has won the game.</em></div>
+        </div>
+
+        <h3 class="sub-title">Modes</h3>
+        <p class="menu-text">This version of Tic-Tac-Toe has two modes; Single Player and Two player. A brief description about each mode is given below.</p>
+        <ul class="menu-list">
+            <li><strong>Single Player:</strong> In Single Player you battle it out with the CPU. A great mode for testing your skills or killing time. Do you have what it takes to defeat the computer?</li>
+            <li><strong>Two Player:</strong> Two Player is like those good old times where you played with a friend using a pencil and paper. The only difference is that the two of you have to pass the mouse back and forth when it's your turn.</li>
+        </ul>
+    </div>
+
+    <div id="menu-about" class="menu" style="display:none;">
+    </div>
+
+    <div id="menu-game" class="menu" style="display:none;">
+        <h2 id="game-title" class="menu-title"></h2>
+        <button class="menu-back" onclick="ttt.showMenu('main');" title="Main menu"><span class="icon-menu"></span></button>
+        <div id="game-turn"></div>
+        <div id="game-score" class="clear">
+            <div id="score-x" class="score-cell"></div>
+            <div id="score-draw" class="score-cell"></div>
+            <div id="score-o" class="score-cell"></div>
+        </div>
+        <div id="game-board"></div>
+        <button id="game-replay" class="menu-option" onclick="ttt.startGame(ttt.mode, 'new+');" style="display:none;">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
